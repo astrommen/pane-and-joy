@@ -1,10 +1,17 @@
-# Getting Started with Create React App
+# Pane&Joy Stained Glass E-commerce Store React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and uses [FakeStoreAPI](https://fakestoreapi.com/) to generate product data.
+
+AddToCart function and Cart page coming soon...
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm run generate-component ComponentName`
+Runs a generate component script that will add ${name} folder to components folder and create ${name}.tsx as well as ${name}.styles.ts to ${name} folder. 
+
+For more information see [Gitconnected article](https://levelup.gitconnected.com/how-to-generate-react-components-from-your-terminal-a27741a5b862)
 
 ### `yarn start`
 
