@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { component } = require('./component_templates.js');
+const { component, styles } = require('./component_templates.js');
 
 // grab component name from terminal argument
 const [name] = process.argv.slice(2);
@@ -16,7 +16,7 @@ fs.mkdirSync(dir);
 // component.tsx
 fs.writeFile(`${dir}/${name}.tsx`, component(name), writeFileErrorHandler);
 // component.scss
-fs.writeFile(`${dir}/${name}.scss`, '', writeFileErrorHandler);
+fs.writeFile(`${dir}/${name}.styles.ts`, styles(name), writeFileErrorHandler);
 function writeFileErrorHandler(err) {
   if (err) throw err;
 }
