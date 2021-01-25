@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and uses [FakeStoreAPI](https://fakestoreapi.com/) to generate product data.
 
-AddToCart function and Cart page coming soon...
+full e-commerce store coming soon...
 
 ## Available Scripts
 
