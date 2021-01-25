@@ -38,10 +38,38 @@ const App = ()=> {
   const getTotalItems = (items: CartItemType[]) => 
     items.reduce((ack: number, item) => ack + item.amount, 0); 
 
-  const handleAddToCart = (clickedItem: CartItemType) => null; //scaffolding
+  const handleAddToCart = (clickedItem: CartItemType) => {
+    // prev is previous state
+    setCartItems(prev => {
+      // 1. Is item already added to cart?
+      const isItemInCart = prev.find(item => item.id === clickedItem.id);
 
-  const handleRemoveFromCart = () => null; //scaffolding
+      if (isItemInCart) {
+        // if true, will loop thru item.ids and update only that item
+        return prev.map(item => 
+          item.id === clickedItem.id
+            ? {...item, amount: item.amount + 1 }
+            : item
+        );
+      }
+      // First time the item is added
+      return [...prev, { ...clickedItem, amount: 1 }];
+    });
+  }; //scaffolding
 
+  const handleRemoveFromCart = (id: number) => {
+    // Item is already in cart
+    setCartItems(prev => (
+      prev.reduce((ack, item) => {
+        if(item.id === id) {
+          if(item.amount === 1) return ack; // skip the item and delete it
+          return [...ack, { ...item, amount: item.amount - 1}]
+        } else {
+          return [...ack, item];
+        }
+      }, [] as CartItemType[]) //ack is set as empty array 
+    ))
+  }
   if (isLoading) return <LinearProgress />;
   if (error) return <div>Something went wrong...</div>;
  
